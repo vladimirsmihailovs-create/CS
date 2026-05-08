@@ -4,12 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CS2 — Counter-Strike 2</title>
- <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    /* Papildu stils, lai bildes galerijā izskatītos labi */
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.1);
+    }
+    .gallery-placeholder {
+      position: relative;
+      z-index: 2;
+      background: rgba(0,0,0,0.3); /* Padara tekstu salasāmāku virs bildes */
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .player-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav id="navbar">
     <div class="nav-brand">
       <span class="nav-logo">CS</span><span class="nav-logo-two">2</span>
@@ -26,7 +57,6 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section id="home" class="hero">
     <div class="hero-bg">
       <div class="scanlines"></div>
@@ -57,137 +87,67 @@
     </div>
   </section>
 
-  <!-- HISTORY -->
   <section id="history" class="history">
     <div class="section-header">
       <span class="section-tag">// VĒSTURE</span>
       <h2>No <span class="accent">CS 1.6</span> līdz <span class="accent">CS2</span></h2>
     </div>
     <div class="timeline">
-
       <div class="timeline-item">
         <div class="timeline-year">2000</div>
         <div class="timeline-card">
           <h3>Counter-Strike 1.0</h3>
-          <p>Sākotnēji Half-Life modifikācija, ko izveidoja Minh Le un Jess Cliffe. Valve to nopirka un pārveidoja par pilnvērtīgu spēli. Drīz kļuva par vienu no populārākajām datoru spēlēm pasaulē.</p>
+          <p>Sākotnēji Half-Life modifikācija, ko izveidoja Minh Le un Jess Cliffe. Valve to nopirka un pārveidoja par pilnvērtīgu spēli.</p>
         </div>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-year">2004</div>
-        <div class="timeline-card">
-          <h3>Counter-Strike: Source</h3>
-          <p>Pilnīgi pārstrādāta uz Source dzinēju. Uzlabota fizika, grafika un animācijas. Spēle sadalīja kopienu — daudzi palika pie 1.6 versijas.</p>
-        </div>
-      </div>
-
       <div class="timeline-item">
         <div class="timeline-year">2012</div>
         <div class="timeline-card">
           <h3>CS:GO — Global Offensive</h3>
-          <p>Iepazīstināja ar Operāciju sistēmu, skin ekonomiku (skins, case opening) un profesionālo scēnu. Matchmaking sistēma padarīja spēli pieejamu plašam auditorijai. 2018. gadā kļuva par bezmaksas spēli.</p>
+          <p>Iepazīstināja ar skin ekonomiku un profesionālo scēnu. 2018. gadā kļuva par bezmaksas spēli.</p>
         </div>
       </div>
-
       <div class="timeline-item">
         <div class="timeline-year">2023</div>
         <div class="timeline-card highlight">
           <h3>Counter-Strike 2 🔥</h3>
-          <p>Palaista 2023. gada 27. septembrī. Balstīta uz Source 2 dzinēju. Uzlabota grafika, jauna apgaismojuma sistēma, atjaunota dūmu granātu fizika un pilnīgi pārstrādāti visi karte. Visi CS:GO skins tika pārnesti automātiski.</p>
+          <p>Palaista 2023. gadā. Balstīta uz Source 2 dzinēju ar uzlabotu grafiku un dūmu fiziku.</p>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- PRO PLAYERS -->
   <section id="players" class="players">
     <div class="section-header">
       <span class="section-tag">// PRO SPĒLĒTĀJI</span>
       <h2>Leģendārie <span class="accent">Spēlētāji</span></h2>
     </div>
-
-    <div class="player-filter">
-      <button class="filter-btn active" data-filter="all">Visi</button>
-      <button class="filter-btn" data-filter="awp">AWP</button>
-      <button class="filter-btn" data-filter="rifler">Rifler</button>
-      <button class="filter-btn" data-filter="igl">IGL</button>
-    </div>
-
     <div class="players-grid" id="playersGrid">
-
       <div class="player-card" data-role="awp">
         <div class="player-rank">#1</div>
-        <div class="player-avatar">s1mple</div>
+        <div class="player-avatar">
+            <img src="https://img-cdn.hltv.org/playeravatar/YmF3-f72UqX3q6n0QG06u0.png?ixlib=java-2.1.0&w=280&s=a48696328221650377a06404764b889a" alt="s1mple" class="player-avatar-img">
+        </div>
         <div class="player-info">
           <h3>Oleksandr "s1mple" Kostyliev</h3>
-          <p class="player-flag">🇺🇦 Ukraina</p>
-          <p class="player-team">Natus Vincere → MOUZ</p>
           <div class="player-role awp-tag">AWP</div>
-          <div class="player-stats">
-            <div class="ps"><span>Rating</span><strong>1.32</strong></div>
-            <div class="ps"><span>HLTV #1</span><strong>4× rokās</strong></div>
-            <div class="ps"><span>Pozīcija</span><strong>AWPer</strong></div>
-          </div>
-          <p class="player-desc">Visur atzīts par visu laiku labāko CS spēlētāju. Neticama reaktivitāte, ārkārtējs AWP meistarums un spēja mainīt spēles iznākumu vienatnē.</p>
+          <p class="player-desc">Visur atzīts par visu laiku labāko CS spēlētāju.</p>
         </div>
       </div>
-
       <div class="player-card" data-role="rifler">
         <div class="player-rank">#2</div>
-        <div class="player-avatar">ZywOo</div>
+        <div class="player-avatar">
+            <img src="https://img-cdn.hltv.org/playeravatar/HndT7q2tBv_7E60X_z5-Vp.png?ixlib=java-2.1.0&w=280&s=17823f684897f5a894709d06a4b13813" alt="ZywOo" class="player-avatar-img">
+        </div>
         <div class="player-info">
           <h3>Mathieu "ZywOo" Herbaut</h3>
-          <p class="player-flag">🇫🇷 Francija</p>
-          <p class="player-team">Team Vitality</p>
           <div class="player-role rifler-tag">AWP / Rifler</div>
-          <div class="player-stats">
-            <div class="ps"><span>Rating</span><strong>1.31</strong></div>
-            <div class="ps"><span>HLTV #1</span><strong>3× rokās</strong></div>
-            <div class="ps"><span>Pozīcija</span><strong>Star Player</strong></div>
-          </div>
-          <p class="player-desc">Francijas fenomens. Konsekventākais spēlētājs CS vēsturē — katru gadu top 3 pasaules rangā. Major tituls ar Vitality 2023. gadā.</p>
+          <p class="player-desc">Francijas fenomens. Konsekventākais spēlētājs CS vēsturē.</p>
         </div>
       </div>
-
-      <div class="player-card" data-role="rifler">
-        <div class="player-rank">#3</div>
-        <div class="player-avatar">NiKo</div>
-        <div class="player-info">
-          <h3>Nikola "NiKo" Kovač</h3>
-          <p class="player-flag">🇧🇦 Bosnija</p>
-          <p class="player-team">G2 Esports</p>
-          <div class="player-role rifler-tag">Rifler</div>
-          <div class="player-stats">
-            <div class="ps"><span>Rating</span><strong>1.27</strong></div>
-            <div class="ps"><span>HLTV #1</span><strong>1× rokās</strong></div>
-            <div class="ps"><span>Pozīcija</span><strong>Entry / Star</strong></div>
-          </div>
-          <p class="player-desc">Precizitātes meistars ar pistoli un šauteni. Spēlē G2 komandā, kura ir viena no populārākajām pasaulē. Neticama deathmatch un 1v1 spēja.</p>
-        </div>
-      </div>
-
-      <div class="player-card" data-role="igl">
-        <div class="player-rank">#4</div>
-        <div class="player-avatar">karrigan</div>
-        <div class="player-info">
-          <h3>Finn "karrigan" Andersen</h3>
-          <p class="player-flag">🇩🇰 Dānija</p>
-          <p class="player-team">FaZe Clan</p>
-          <div class="player-role igl-tag">IGL</div>
-          <div class="player-stats">
-            <div class="ps"><span>Major uzvara</span><strong>2022</strong></div>
-            <div class="ps"><span>Komandas</span><strong>7+</strong></div>
-            <div class="ps"><span>Pozīcija</span><strong>IGL / Support</strong></div>
-          </div>
-          <p class="player-desc">Viens no labākajiem komandas vadītājiem CS vēsturē. Ar FaZe izcīnīja pirmo Major titulu 2022. gadā Antverpē. Atzīts par taktisko ģēniju.</p>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- GALLERY -->
   <section id="gallery" class="gallery-section">
     <div class="section-header">
       <span class="section-tag">// GALERIJA</span>
@@ -196,168 +156,57 @@
 
     <div class="gallery-grid" id="galleryGrid">
       <div class="gallery-item" data-img="1" style="--accent:#f4b942;">
+        <img src="https://gamingbolt.com/wp-content/uploads/2023/03/Counter-Strike-2-Dust-2.jpg" class="gallery-img">
         <div class="gallery-placeholder gp1">
           <span class="map-name">DUST II</span>
           <span class="map-desc">Ikoniskākā karte CS vēsturē</span>
         </div>
         <div class="gallery-overlay">
-          <p>Dust II — 2001. gadā radīta klasiskā karte, kas atjaunota CS2.</p>
+          <p>Dust II — Atjaunota CS2 ar jaunu apgaismojumu.</p>
         </div>
       </div>
+
       <div class="gallery-item" data-img="2" style="--accent:#00aaff;">
+        <img src="https://bo3.gg/storage/images/news/3760/64da297782352.webp" class="gallery-img">
         <div class="gallery-placeholder gp2">
           <span class="map-name">MIRAGE</span>
           <span class="map-desc">Viena no populārākajām pro kartēm</span>
         </div>
         <div class="gallery-overlay">
-          <p>Mirage — Marokas tematikas karte ar 3 galvenajiem koridoriem.</p>
+          <p>Mirage — Marokas tematikas karte, kas joprojām ir ļoti populāra.</p>
         </div>
       </div>
+
       <div class="gallery-item" data-img="3" style="--accent:#ffcc00;">
+        <img src="https://www.esports.net/wp-content/uploads/2023/07/cs2-inferno-leaks.jpg" class="gallery-img">
         <div class="gallery-placeholder gp3">
           <span class="map-name">INFERNO</span>
           <span class="map-desc">Mediterānijas stila karte</span>
         </div>
         <div class="gallery-overlay">
-          <p>Inferno — Itālijas pilsētas stilā veidota karte ar saspringtām cīņām.</p>
+          <p>Inferno — Pilnībā pārveidota CS2 versijā ar neticamu detaļu līmeni.</p>
         </div>
       </div>
-      <div class="gallery-item" data-img="4" style="--accent:#00ff88;">
-        <div class="gallery-placeholder gp4">
-          <span class="map-name">NUKE</span>
-          <span class="map-desc">Divstāvu atomelektrostacijas karte</span>
-        </div>
-        <div class="gallery-overlay">
-          <p>Nuke — Unikāla vertikālā struktūra ar augšējo un apakšējo stāvu.</p>
-        </div>
-      </div>
-      <div class="gallery-item" data-img="5" style="--accent:#ff00aa;">
-        <div class="gallery-placeholder gp5">
-          <span class="map-name">ANCIENT</span>
-          <span class="map-desc">Maiju tempļu tematika</span>
-        </div>
-        <div class="gallery-overlay">
-          <p>Ancient — Jaunākā karte mappool sarakstā ar džungļu tematiku.</p>
-        </div>
-      </div>
+
       <div class="gallery-item" data-img="6" style="--accent:#ff6600;">
+        <img src="https://img.youtube.com/vi/i7N9KzW8Wp8/maxresdefault.jpg" class="gallery-img">
         <div class="gallery-placeholder gp6">
           <span class="map-name">ANUBIS</span>
           <span class="map-desc">Ēģiptes tuksnešu karte</span>
         </div>
         <div class="gallery-overlay">
-          <p>Anubis — Ēģiptes stilā veidota karte ar unikāliem vidus koridoriem.</p>
+          <p>Anubis — Viena no jaunākajām kartēm sacensību režīmā.</p>
         </div>
       </div>
     </div>
-
-    <div class="lightbox" id="lightbox">
-      <button class="lightbox-close" id="lightboxClose">✕</button>
-      <div class="lightbox-content" id="lightboxContent"></div>
-    </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact-section">
-    <div class="section-header">
-      <span class="section-tag">// KONTAKTI</span>
-      <h2>Sazinies ar <span class="accent">Mums</span></h2>
-    </div>
-
-    <div class="contact-wrapper">
-      <div class="contact-info">
-        <h3>Fanāts? Dalies!</h3>
-        <p>Raksti mums par savu CS2 pieredzi, iemīļotajiem spēlētājiem vai jautājumiem par spēli.</p>
-        <div class="info-blocks">
-          <div class="info-block"><span class="info-icon">📧</span><span>cs2fans@example.com</span></div>
-          <div class="info-block"><span class="info-icon">🎮</span><span>Steam kopiena</span></div>
-          <div class="info-block"><span class="info-icon">📺</span><span>Twitch & YouTube kanāls</span></div>
-        </div>
-      </div>
-
-      <form class="contact-form" id="contactForm" novalidate>
-        <div class="form-group">
-          <label for="name">Vārds *</label>
-          <input type="text" id="name" name="name" placeholder="Tavs vārds" />
-          <span class="error-msg" id="nameError"></span>
-        </div>
-        <div class="form-group">
-          <label for="email">E-pasts *</label>
-          <input type="email" id="email" name="email" placeholder="tavs@epasts.lv" />
-          <span class="error-msg" id="emailError"></span>
-        </div>
-        <div class="form-group">
-          <label for="rank">CS2 Rangs</label>
-          <select id="rank" name="rank">
-            <option value="">— Izvēlies rangu —</option>
-            <option value="silver">Silver</option>
-            <option value="gold">Gold Nova</option>
-            <option value="mge">Master Guardian Elite</option>
-            <option value="eagle">Distinguished Master Guardian</option>
-            <option value="supreme">Supreme Master First Class</option>
-            <option value="global">Global Elite</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Iemīļotākā karte *</label>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="map" value="dust2" /> Dust II</label>
-            <label class="radio-label"><input type="radio" name="map" value="mirage" /> Mirage</label>
-            <label class="radio-label"><input type="radio" name="map" value="inferno" /> Inferno</label>
-            <label class="radio-label"><input type="radio" name="map" value="nuke" /> Nuke</label>
-            <label class="radio-label"><input type="radio" name="map" value="other" /> Cita</label>
-          </div>
-          <span class="error-msg" id="mapError"></span>
-        </div>
-        <div class="form-group">
-          <label>Intereses</label>
-          <div class="checkbox-group">
-            <label class="check-label"><input type="checkbox" name="interests" value="pro" /> Pro scēna</label>
-            <label class="check-label"><input type="checkbox" name="interests" value="skins" /> Skins</label>
-            <label class="check-label"><input type="checkbox" name="interests" value="rank" /> Rangu spēles</label>
-            <label class="check-label"><input type="checkbox" name="interests" value="faceit" /> FACEIT</label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="message">Ziņojums *</label>
-          <textarea id="message" name="message" rows="4" placeholder="Raksti šeit..."></textarea>
-          <span class="error-msg" id="messageError"></span>
-        </div>
-        <button type="submit" class="submit-btn" id="submitBtn">
-          <span>Nosūtīt</span><span class="btn-icon">→</span>
-        </button>
-        <div class="form-success" id="formSuccess">
-          <span class="success-icon">✓</span>
-          <p id="successText"></p>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-brand">
         <span class="nav-logo">CS</span><span class="nav-logo-two">2</span>
-        <p>Šī vietne ir izveidota izglītojošiem mērķiem kā skolas projekts.</p>
+        <p>© 2025 CS2 Informācijas Vietne — Skolas projekts</p>
       </div>
-      <div class="footer-links">
-        <h4>Navigācija</h4>
-        <a href="#home">Sākums</a>
-        <a href="#history">Vēsture</a>
-        <a href="#players">Spēlētāji</a>
-        <a href="#gallery">Galerija</a>
-        <a href="#contact">Kontakti</a>
-      </div>
-      <div class="footer-info">
-        <h4>Avoti</h4>
-        <a href="https://www.counter-strike.net" target="_blank" rel="noopener">counter-strike.net</a>
-        <a href="https://www.hltv.org" target="_blank" rel="noopener">HLTV.org</a>
-        <a href="https://store.steampowered.com/app/730" target="_blank" rel="noopener">Steam — CS2</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 CS2 Informācijas Vietne — Skolas projekts | Valve Corporation — CS2 preču zīme</p>
     </div>
   </footer>
 
