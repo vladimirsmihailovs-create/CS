@@ -684,16 +684,3 @@ input[type="radio"], input[type="checkbox"] { accent-color: var(--accent); width
   .footer-content { grid-template-columns: 1fr; }
   .players-grid { grid-template-columns: 1fr; }
 }
-.gallery-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-.gallery-placeholder {
-    position: relative;
-    z-index: 2;
-}
